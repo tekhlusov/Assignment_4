@@ -21,3 +21,5 @@ def get_successful_students(students_list, passing_score=60):
             successful_students[student["name"]] = average
 
     return successful_students
+
+print(get_successful_students(students_math_results))
