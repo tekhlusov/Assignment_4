@@ -7,5 +7,17 @@ students_math_results = [{"name": "Олександр", "scores": {"Calculus": 8
 {"name": "Анна", "scores": {"Calculus": 45, "Algebra": 60,
 "Discrete Math": 50}}]
 
-def get_successful_students(students_list,passing_score=60):
-    return 0
+
+def get_successful_students(students_list, passing_score=60):
+    successful_students = {}
+
+    for student in students_list:
+        scores = student["scores"]
+
+        if scores["Calculus"] >= passing_score and scores["Discrete Math"] >= passing_score and scores[
+            "Algebra"] >= passing_score:
+            average = (scores["Calculus"] + scores["Discrete Math"] + scores["Algebra"]) / 3
+
+            successful_students[student["name"]] = average
+
+    return successful_students
