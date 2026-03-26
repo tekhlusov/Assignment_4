@@ -26,4 +26,10 @@ def analyze_methods(data):
             report[name]["total_time_ms"] += time_ms
             report[name]["iterations_count"] += 1
     return report
-print(analyze_methods(experiments_data))
+
+report = analyze_methods(experiments_data)
+for method, stats in report.items():
+    print(f"Метод: {method}")
+    print(f"  Макс. похибка: {stats['max_error']}")
+    print(f"  Кількість ітерацій: {stats['iterations_count']}")
+    print(f"  Загальний час: {stats['total_time_ms']:} мс")
