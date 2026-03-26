@@ -13,4 +13,14 @@ experiments_data = [
 ]
 
 def analyze_methods(data):
-    return 0
+    report = {}
+    for experiment in data:
+        name = experiment["method"]
+        error = experiment["error"]
+        time_ms = experiment["time_ms"]
+        if error > report[name]["error"]:
+            report[name]["error"] = error
+        report[name]["time_ms"] += time_ms
+        report[name]["iteration"] += 1
+    return report
+print(analyze_methods(experiments_data))
